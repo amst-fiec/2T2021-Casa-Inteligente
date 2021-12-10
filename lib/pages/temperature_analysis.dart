@@ -58,16 +58,18 @@ class TemperatureAnalysis extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 48,
+                    horizontal: 32,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: const [
-                      Icon(
-                        Icons.thermostat,
-                        color: Colors.white,
-                        size: 64,
+                    children: [
+                      BounceInUp(
+                        child: const Icon(
+                          Icons.thermostat,
+                          color: Colors.white,
+                          size: 64,
+                        ),
                       )
                     ],
                   ),

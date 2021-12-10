@@ -46,36 +46,38 @@ class _LoginOptionsState extends State<LoginOptions> {
           child: Stack(
             alignment: AlignmentDirectional.center,
             children: [
-              const Positioned(
+              Positioned(
                 top: 48,
-                child: Logo(),
+                child: BounceInDown(child: const Logo()),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 48,
+                  horizontal: 32,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ElevatedButton.icon(
-                      style: buttonStyle,
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/login');
-                      },
-                      label: const Text(
-                        'sign in',
-                        style: TextStyle(
-                          color: itemColor,
-                          fontFamily: 'Designer',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                          letterSpacing: 0.75,
+                    BounceInLeft(
+                      child: ElevatedButton.icon(
+                        style: buttonStyle,
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/login');
+                        },
+                        label: const Text(
+                          'sign in',
+                          style: TextStyle(
+                            color: itemColor,
+                            fontFamily: 'Designer',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                            letterSpacing: 0.75,
+                          ),
                         ),
-                      ),
-                      icon: const Icon(
-                        Icons.mail_outline_rounded,
-                        color: itemColor,
+                        icon: const Icon(
+                          Icons.mail_outline_rounded,
+                          color: itemColor,
+                        ),
                       ),
                     ),
                     Padding(
@@ -108,7 +110,7 @@ class _LoginOptionsState extends State<LoginOptions> {
                         ],
                       ),
                     ),
-                    const GoogleSignInButton(),
+                    BounceInRight(child: const GoogleSignInButton()),
                   ],
                 ),
               ),

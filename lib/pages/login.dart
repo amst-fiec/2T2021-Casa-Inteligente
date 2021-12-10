@@ -59,61 +59,67 @@ class Login extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 48,
+                    horizontal: 32,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const TextField(
-                        style: TextStyle(
-                            color: itemColor,
-                            fontFamily: 'Designer',
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold),
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintStyle: TextStyle(color: itemColor),
-                            hintText: "email",
-                            fillColor: backgroundColor,
-                            filled: true),
+                      BounceInLeft(
+                        child: const TextField(
+                          style: TextStyle(
+                              color: itemColor,
+                              fontFamily: 'Designer',
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold),
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintStyle: TextStyle(color: itemColor),
+                              hintText: "email",
+                              fillColor: backgroundColor,
+                              filled: true),
+                        ),
                       ),
                       Container(
                         height: 16,
                       ),
-                      const TextField(
-                        obscureText: true,
-                        enableSuggestions: false,
-                        autocorrect: false,
-                        style: TextStyle(
-                            color: itemColor,
-                            fontFamily: 'Designer',
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold),
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintStyle: TextStyle(color: itemColor),
-                            hintText: "password",
-                            fillColor: backgroundColor,
-                            filled: true),
+                      BounceInRight(
+                        child: const TextField(
+                          obscureText: true,
+                          enableSuggestions: false,
+                          autocorrect: false,
+                          style: TextStyle(
+                              color: itemColor,
+                              fontFamily: 'Designer',
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold),
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintStyle: TextStyle(color: itemColor),
+                              hintText: "password",
+                              fillColor: backgroundColor,
+                              filled: true),
+                        ),
                       ),
                     ],
                   ),
                 ),
                 Positioned(
                     bottom: 80,
-                    child: ElevatedButton(
-                      style: buttonStyle,
-                      onPressed: () {
-                        Navigator.pushReplacementNamed(context, '/menu');
-                      },
-                      child: const Text(
-                        'continue',
-                        style: TextStyle(
-                            fontFamily: 'Designer',
-                            color: itemColor,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold),
+                    child: BounceInUp(
+                      child: ElevatedButton(
+                        style: buttonStyle,
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(context, '/menu');
+                        },
+                        child: const Text(
+                          'continue',
+                          style: TextStyle(
+                              fontFamily: 'Designer',
+                              color: itemColor,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     )),
               ],

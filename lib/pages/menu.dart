@@ -59,50 +59,55 @@ class Menu extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 48,
+                    horizontal: 32,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      ElevatedButton.icon(
-                        style: buttonStyle,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/home_status');
-                        },
-                        label: const Text(
-                          'smarty home status',
-                          style: TextStyle(
-                            color: itemColor,
-                            fontFamily: 'Designer',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                            letterSpacing: 0.75,
+                      BounceInLeft(
+                        child: ElevatedButton.icon(
+                          style: buttonStyle,
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/home_status');
+                          },
+                          label: const Text(
+                            'smarty home status',
+                            style: TextStyle(
+                              color: itemColor,
+                              fontFamily: 'Designer',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                              letterSpacing: 0.75,
+                            ),
                           ),
-                        ),
-                        icon: const Icon(
-                          Icons.home,
-                          color: itemColor,
+                          icon: const Icon(
+                            Icons.home,
+                            color: itemColor,
+                          ),
                         ),
                       ),
-                      ElevatedButton.icon(
-                        style: buttonStyle,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/temperature_analysis');
-                        },
-                        label: const Text(
-                          'temperature analysis',
-                          style: TextStyle(
-                            color: itemColor,
-                            fontFamily: 'Designer',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                            letterSpacing: 0.75,
+                      BounceInRight(
+                        child: ElevatedButton.icon(
+                          style: buttonStyle,
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, '/temperature_analysis');
+                          },
+                          label: const Text(
+                            'temperature analysis',
+                            style: TextStyle(
+                              color: itemColor,
+                              fontFamily: 'Designer',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                              letterSpacing: 0.75,
+                            ),
                           ),
-                        ),
-                        icon: const Icon(
-                          Icons.thermostat,
-                          color: itemColor,
+                          icon: const Icon(
+                            Icons.thermostat,
+                            color: itemColor,
+                          ),
                         ),
                       ),
                     ],

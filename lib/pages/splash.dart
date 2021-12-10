@@ -37,7 +37,7 @@ class Splash extends StatelessWidget {
             FadeIn(
               duration: const Duration(seconds: 2),
               child: Image.asset(
-                'images/logo.png',
+                'assets/images/logo.png',
                 height: 150,
               ),
             ),

@@ -54,7 +54,7 @@ class Menu extends StatelessWidget {
                 Positioned(
                   top: 48,
                   child: Image.asset(
-                    'images/logo.png',
+                    'assets/images/logo.png',
                     height: 150,
                   ),
                 ),

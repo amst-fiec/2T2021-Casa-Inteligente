@@ -2,11 +2,17 @@ import 'package:animate_do/animate_do.dart';
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smarty_home/widgets/google_sign_in_button.dart';
 import 'package:smarty_home/widgets/logo.dart';
 
-class LoginOptions extends StatelessWidget {
+class LoginOptions extends StatefulWidget {
   const LoginOptions({Key? key}) : super(key: key);
 
+  @override
+  State<LoginOptions> createState() => _LoginOptionsState();
+}
+
+class _LoginOptionsState extends State<LoginOptions> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -102,15 +108,7 @@ class LoginOptions extends StatelessWidget {
                         ],
                       ),
                     ),
-                    ElevatedButton(
-                        style: buttonStyle,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/menu');
-                        },
-                        child: const Icon(
-                          CommunityMaterialIcons.google,
-                          color: itemColor,
-                        )),
+                    const GoogleSignInButton(),
                   ],
                 ),
               ),

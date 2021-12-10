@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smarty_home/utilities/authentication.dart';
 import 'package:smarty_home/widgets/logo.dart';
 
 class Menu extends StatelessWidget {
@@ -47,6 +48,7 @@ class Menu extends StatelessWidget {
                   child: IconButton(
                     tooltip: 'Exit',
                     onPressed: () {
+                      Authentication.signOut(context: context);
                       Navigator.pop(context);
                     },
                     icon: const Icon(Icons.close),

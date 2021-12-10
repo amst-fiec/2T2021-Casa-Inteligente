@@ -49,7 +49,7 @@ class Menu extends StatelessWidget {
                     tooltip: 'Exit',
                     onPressed: () {
                       Authentication.signOut(context: context);
-                      Navigator.pop(context);
+                      Navigator.pushReplacementNamed(context, '/login_options');
                     },
                     icon: const Icon(Icons.close),
                     color: Colors.white,

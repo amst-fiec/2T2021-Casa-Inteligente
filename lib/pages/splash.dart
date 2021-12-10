@@ -1,7 +1,10 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:smarty_home/utilities/authentication.dart';
 import 'package:smarty_home/widgets/logo.dart';
 
 class Splash extends StatelessWidget {
@@ -9,8 +12,13 @@ class Splash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Authentication.initializeFirebase();
     Future.delayed(const Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, '/login_options');
+      if (FirebaseAuth.instance.currentUser == null) {
+        Navigator.pushReplacementNamed(context, '/login_options');
+      } else {
+        Navigator.pushReplacementNamed(context, '/menu');
+      }
     });
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -51,4 +59,20 @@ class Splash extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<User?> currentUser() async {
+  final GoogleSignInAccount? account = await GoogleSignIn().signIn();
+  final GoogleSignInAuthentication? authentication =
+      await account?.authentication;
+
+  final OAuthCredential credential = GoogleAuthProvider.credential(
+      idToken: authentication?.idToken,
+      accessToken: authentication?.accessToken);
+
+  final UserCredential authResult =
+      await FirebaseAuth.instance.signInWithCredential(credential);
+  final User? user = authResult.user;
+
+  return user;
 }

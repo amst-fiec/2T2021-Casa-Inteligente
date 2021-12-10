@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smarty_home/widgets/logo.dart';
 
 class TemperatureAnalysis extends StatelessWidget {
   const TemperatureAnalysis({Key? key}) : super(key: key);
@@ -51,12 +52,9 @@ class TemperatureAnalysis extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                Positioned(
+                const Positioned(
                   top: 48,
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                    height: 150,
-                  ),
+                  child: Logo(),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(

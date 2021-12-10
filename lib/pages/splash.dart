@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:smarty_home/widgets/logo.dart';
 
 class Splash extends StatelessWidget {
   const Splash({Key? key}) : super(key: key);
@@ -36,10 +37,7 @@ class Splash extends StatelessWidget {
           children: [
             FadeIn(
               duration: const Duration(seconds: 2),
-              child: Image.asset(
-                'assets/images/logo.png',
-                height: 150,
-              ),
+              child: const Logo(),
             ),
             const Positioned(
               bottom: 48,

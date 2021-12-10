@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smarty_home/widgets/logo.dart';
 
 class LoginOptions extends StatelessWidget {
   const LoginOptions({Key? key}) : super(key: key);
@@ -39,12 +40,9 @@ class LoginOptions extends StatelessWidget {
           child: Stack(
             alignment: AlignmentDirectional.center,
             children: [
-              Positioned(
+              const Positioned(
                 top: 48,
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  height: 150,
-                ),
+                child: Logo(),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(

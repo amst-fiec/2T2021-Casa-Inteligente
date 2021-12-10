@@ -68,7 +68,9 @@ class Menu extends StatelessWidget {
                     children: [
                       ElevatedButton.icon(
                         style: buttonStyle,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/home_status');
+                        },
                         label: const Text(
                           'smarty home status',
                           style: TextStyle(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smarty_home/pages/home_status.dart';
 import 'package:smarty_home/pages/login.dart';
 import 'package:smarty_home/pages/login_options.dart';
 import 'package:smarty_home/pages/menu.dart';
@@ -14,5 +15,6 @@ void main() => runApp(MaterialApp(
         '/login': (context) => const Login(),
         '/menu': (context) => const Menu(),
         '/temperature_analysis': (context) => const TemperatureAnalysis(),
+        '/home_status': (context) => const HomeStatus(),
       },
     ));

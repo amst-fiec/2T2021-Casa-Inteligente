@@ -4,10 +4,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 class SmartyCard extends StatelessWidget {
   final String? title;
   final String? svgName;
-  const SmartyCard({Key? key, this.title, this.svgName = ""}) : super(key: key);
+  final int prioritie;
+  final double value;
+  final String units;
+  final String state;
+  const SmartyCard({Key? key, this.title, this.svgName = "", this.prioritie = 1, required this.value, required this.state, required this.units}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final colors = [
+                      Colors.lightGreenAccent[400],
+                      Colors.orange[500],
+                      Colors.redAccent[400],
+                    ];
+
+
     final size = MediaQuery.of(context).size;
     double widthCard = (size.width < 500) ? size.width * 0.4375 : 180.0;
     double heightCard = (size.width < 500) ? size.width * 0.6090 : 230.0;
@@ -43,11 +54,12 @@ class SmartyCard extends StatelessWidget {
               SvgPicture.asset(
                 "assets/svgs/$svgName.svg",
                 height: heightCard * 0.45,
+                color: Colors.white,
               ),
-              const Text(
-                "value",
+              Text(
+                "$value $units",
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 24.0,
                     fontFamily: 'Designer',
                     fontWeight: FontWeight.w600,
@@ -57,18 +69,13 @@ class SmartyCard extends StatelessWidget {
                 height: 8,
               ),
               Text(
-                "state",
+                state,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontSize: 24.0,
+                    fontSize: 20.0,
                     fontFamily: 'Designer',
                     fontWeight: FontWeight.w600,
-                    color: ([
-                      Colors.orange[500],
-                      Colors.redAccent[400],
-                      Colors.lightGreenAccent[400],
-                    ]..shuffle())
-                        .first),
+                    color: colors[(prioritie-1)]),
               ),
             ],
           )),

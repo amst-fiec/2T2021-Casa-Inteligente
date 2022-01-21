@@ -13,6 +13,27 @@ class Authentication {
     return firebaseApp;
   }
 
+  static Future<User?> signInWithMail(
+      BuildContext context, String email, String password) async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    User? user;
+    try {
+      UserCredential userCredential = await auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      user = userCredential.user;
+      return user;
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        Authentication.customSnackBar(
+          content: e.toString(),
+        ),
+      );
+    }
+    return null;
+  }
+
   static Future<User?> signInWithGoogle({required BuildContext context}) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user;

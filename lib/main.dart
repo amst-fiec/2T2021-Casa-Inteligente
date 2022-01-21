@@ -12,7 +12,7 @@ void main() => runApp(MaterialApp(
       routes: {
         '/': (context) => const Splash(),
         '/login_options': (context) => const LoginOptions(),
-        '/login': (context) => const Login(),
+        '/login': (context) => Login(),
         '/menu': (context) => const Menu(),
         '/temperature_analysis': (context) => const TemperatureAnalysis(),
         '/home_status': (context) => const HomeStatus(),

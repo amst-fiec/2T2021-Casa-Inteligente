@@ -1,10 +1,14 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smarty_home/utilities/authentication.dart';
 import 'package:smarty_home/widgets/logo.dart';
 
 class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+  Login({Key? key}) : super(key: key);
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -66,13 +70,14 @@ class Login extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       BounceInLeft(
-                        child: const TextField(
-                          style: TextStyle(
+                        child: TextField(
+                          controller: emailController,
+                          style: const TextStyle(
                               color: itemColor,
                               fontFamily: 'Designer',
                               fontSize: 24,
                               fontWeight: FontWeight.bold),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintStyle: TextStyle(color: itemColor),
                               hintText: "email",
@@ -84,16 +89,17 @@ class Login extends StatelessWidget {
                         height: 16,
                       ),
                       BounceInRight(
-                        child: const TextField(
+                        child: TextField(
+                          controller: passwordController,
                           obscureText: true,
                           enableSuggestions: false,
                           autocorrect: false,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: itemColor,
                               fontFamily: 'Designer',
                               fontSize: 24,
                               fontWeight: FontWeight.bold),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintStyle: TextStyle(color: itemColor),
                               hintText: "password",
@@ -109,8 +115,18 @@ class Login extends StatelessWidget {
                     child: BounceInUp(
                       child: ElevatedButton(
                         style: buttonStyle,
-                        onPressed: () {
-                          Navigator.pushReplacementNamed(context, '/menu');
+                        onPressed: () async {
+                          User? user = await Authentication.signInWithMail(
+                            context,
+                            emailController.text,
+                            passwordController.text,
+                          );
+                          if (user != null) {
+                            Navigator.pushReplacementNamed(
+                                context, '/home_status');
+                          } else {
+                            Navigator.pop(context);
+                          }
                         },
                         child: const Text(
                           'continue',

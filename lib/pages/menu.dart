@@ -51,7 +51,7 @@ class Menu extends StatelessWidget {
                       Authentication.signOut(context: context);
                       Navigator.pushReplacementNamed(context, '/login_options');
                     },
-                    icon: const Icon(Icons.close),
+                    icon: const Icon(Icons.logout_rounded),
                     color: Colors.white,
                   ),
                 ),

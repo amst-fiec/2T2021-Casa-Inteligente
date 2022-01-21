@@ -58,7 +58,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                     });
 
                     if (user != null) {
-                      Navigator.pushReplacementNamed(context, '/menu');
+                      Navigator.pushReplacementNamed(context, '/home_status');
                     }
                   },
                   child: const Icon(
